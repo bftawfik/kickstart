@@ -4,39 +4,39 @@ var infowindow;
 var requests = [
   {
     query: 'Damascus',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Mogadishu',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Ibiza',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Tahrir',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Nairobi',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Kathmandu',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Bernabau',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Athens',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   },
   {
     query: 'Istanbul',
-    fields: ['name', 'geometry'],
+    fields: ['name', 'geometry', 'types'],
   }
 ];
 
@@ -53,7 +53,7 @@ function initMap() {
   requests.map(request => {
     service.findPlaceFromQuery(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log(results);
+        console.log(results[0].name, results[0].types);
         for (var i = 0; i < results.length; i++) {
           createMarker(results[i]);
         }
